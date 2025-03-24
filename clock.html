@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock using JavaScript - Easy Tutorials</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+                <span id="HRS">00</span>
+                <span>:</span>
+                <span id="Min">00</span>
+                <span>:</span>
+                <span id="Sec">00</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let Hrs = document.getElementById('HRS');
+        let Min = document.getElementById('Min');
+        let Sec = document.getElementById('Sec');
+
+        function updateTime() {
+            let currentTime = new Date();
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
+
+            // Add leading zero if less than 10
+            Hrs.innerHTML = (hours < 10 ? '0' : '') + hours;
+            Min.innerHTML = (minutes < 10 ? '0' : '') + minutes;
+            Sec.innerHTML = (seconds < 10 ? '0' : '') + seconds;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call to display time immediately
+    </script>
+</body>
+</html>
